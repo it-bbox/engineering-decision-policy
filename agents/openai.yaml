@@ -1,0 +1,4 @@
+interface:
+  display_name: "Engineering Decision Policy"
+  short_description: "Приоритеты качества с проверкой регрессий"
+  default_prompt: "Примени $engineering-decision-policy к изменению: зафиксируй ограничения, измерь критерии и проверь предыдущие уровни."

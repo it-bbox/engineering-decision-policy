@@ -1,0 +1,346 @@
+[
+  {
+    "baseline": "baseline",
+    "candidate": "testable",
+    "expected": "ACCEPT",
+    "schema_version": 2,
+    "status": "ACCEPT",
+    "reason": "Target improved; hard constraints and all previous levels preserved",
+    "target": "testability",
+    "next_level_allowed": true,
+    "unresolved": [],
+    "all_configured_gates_met": true,
+    "global_optimum_proven": false,
+    "measurements": [
+      {
+        "id": "correctness",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "api_contract",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "direct"
+      },
+      {
+        "id": "input_validation",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "work_budget",
+        "baseline": 6,
+        "candidate": 6,
+        "candidate_gate": true,
+        "evidence_kind": "direct"
+      },
+      {
+        "id": "testability",
+        "baseline": false,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "extensibility",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "reusability",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "branch_nodes",
+        "baseline": 4,
+        "candidate": 4,
+        "candidate_gate": true,
+        "evidence_kind": "proxy"
+      },
+      {
+        "id": "source_lines",
+        "baseline": 8,
+        "candidate": 7,
+        "candidate_gate": true,
+        "evidence_kind": "proxy"
+      },
+      {
+        "id": "formatter_calls",
+        "baseline": 6,
+        "candidate": 6,
+        "candidate_gate": true,
+        "evidence_kind": "proxy"
+      }
+    ]
+  },
+  {
+    "baseline": "testable",
+    "candidate": "compact-regression",
+    "expected": "REJECT",
+    "schema_version": 2,
+    "status": "REJECT",
+    "reason": "Previous level regressed: testability",
+    "target": "source_lines",
+    "next_level_allowed": false,
+    "unresolved": [
+      "testability"
+    ],
+    "all_configured_gates_met": false,
+    "global_optimum_proven": false,
+    "measurements": [
+      {
+        "id": "correctness",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "api_contract",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "direct"
+      },
+      {
+        "id": "input_validation",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "work_budget",
+        "baseline": 6,
+        "candidate": 6,
+        "candidate_gate": true,
+        "evidence_kind": "direct"
+      },
+      {
+        "id": "testability",
+        "baseline": true,
+        "candidate": false,
+        "candidate_gate": false,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "extensibility",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "reusability",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "branch_nodes",
+        "baseline": 4,
+        "candidate": 4,
+        "candidate_gate": true,
+        "evidence_kind": "proxy"
+      },
+      {
+        "id": "source_lines",
+        "baseline": 7,
+        "candidate": 5,
+        "candidate_gate": true,
+        "evidence_kind": "proxy"
+      },
+      {
+        "id": "formatter_calls",
+        "baseline": 6,
+        "candidate": 6,
+        "candidate_gate": true,
+        "evidence_kind": "proxy"
+      }
+    ]
+  },
+  {
+    "baseline": "testable",
+    "candidate": "efficient",
+    "expected": "ACCEPT",
+    "schema_version": 2,
+    "status": "ACCEPT",
+    "reason": "Target improved; hard constraints and all previous levels preserved",
+    "target": "formatter_calls",
+    "next_level_allowed": true,
+    "unresolved": [],
+    "all_configured_gates_met": true,
+    "global_optimum_proven": false,
+    "measurements": [
+      {
+        "id": "correctness",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "api_contract",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "direct"
+      },
+      {
+        "id": "input_validation",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "work_budget",
+        "baseline": 6,
+        "candidate": 3,
+        "candidate_gate": true,
+        "evidence_kind": "direct"
+      },
+      {
+        "id": "testability",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "extensibility",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "reusability",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "branch_nodes",
+        "baseline": 4,
+        "candidate": 4,
+        "candidate_gate": true,
+        "evidence_kind": "proxy"
+      },
+      {
+        "id": "source_lines",
+        "baseline": 7,
+        "candidate": 7,
+        "candidate_gate": true,
+        "evidence_kind": "proxy"
+      },
+      {
+        "id": "formatter_calls",
+        "baseline": 6,
+        "candidate": 3,
+        "candidate_gate": true,
+        "evidence_kind": "proxy"
+      }
+    ]
+  },
+  {
+    "baseline": "testable",
+    "candidate": "unknown-hard",
+    "expected": "INCONCLUSIVE",
+    "schema_version": 2,
+    "status": "INCONCLUSIVE",
+    "reason": "Hard constraint unknown: correctness",
+    "target": "testability",
+    "next_level_allowed": false,
+    "unresolved": [
+      "correctness"
+    ],
+    "all_configured_gates_met": false,
+    "global_optimum_proven": false,
+    "measurements": [
+      {
+        "id": "correctness",
+        "baseline": true,
+        "candidate": null,
+        "candidate_gate": null,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "api_contract",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "direct"
+      },
+      {
+        "id": "input_validation",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "work_budget",
+        "baseline": 6,
+        "candidate": 6,
+        "candidate_gate": true,
+        "evidence_kind": "direct"
+      },
+      {
+        "id": "testability",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "extensibility",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "reusability",
+        "baseline": true,
+        "candidate": true,
+        "candidate_gate": true,
+        "evidence_kind": "scenario"
+      },
+      {
+        "id": "branch_nodes",
+        "baseline": 4,
+        "candidate": 4,
+        "candidate_gate": true,
+        "evidence_kind": "proxy"
+      },
+      {
+        "id": "source_lines",
+        "baseline": 7,
+        "candidate": 7,
+        "candidate_gate": true,
+        "evidence_kind": "proxy"
+      },
+      {
+        "id": "formatter_calls",
+        "baseline": 6,
+        "candidate": 6,
+        "candidate_gate": true,
+        "evidence_kind": "proxy"
+      }
+    ]
+  }
+]

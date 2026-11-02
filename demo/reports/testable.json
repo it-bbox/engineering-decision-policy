@@ -1,0 +1,62 @@
+{
+  "schema_version": 2,
+  "policy_sha256": "ae27c53265f1ebd76c0144b19a30e5a48b2522ea28f80d5f20e41f6ee8790686",
+  "scope": "demo/export_rows",
+  "suite_id": "export-rows-v2",
+  "source_revision": "194c9a5d3a3a69e0e1b99eb2f48cf0ea304cd90ac917f40df4ea4b5c17d6e359",
+  "environment": "CPython-3.15.1/Darwin-arm64/collector-b05b8c15c351b434",
+  "experiment_id": "export-rows-demo-v2",
+  "collected_at": "2026-11-02T11:38:28.898392+00:00",
+  "measurements": {
+    "correctness": {
+      "status": "measured",
+      "value": true,
+      "evidence": "testable.py: Проверить пустой набор, Unicode, порядок и совпадение возвращённых и отправленных строк."
+    },
+    "api_contract": {
+      "status": "measured",
+      "value": true,
+      "evidence": "testable.py: inspect.signature: export_rows(rows, emit, formatter=str)."
+    },
+    "input_validation": {
+      "status": "measured",
+      "value": true,
+      "evidence": "testable.py: Нестроковый элемент должен вызвать ValueError до первого вызова sink."
+    },
+    "work_budget": {
+      "status": "measured",
+      "value": 6,
+      "evidence": "testable.py: Счётчик formatter в том же фиксированном workload: не более 12 вызовов."
+    },
+    "testability": {
+      "status": "measured",
+      "value": true,
+      "evidence": "testable.py: Вызвать экспорт с подставным sink; проверить отсутствие вывода в stdout."
+    },
+    "extensibility": {
+      "status": "measured",
+      "value": true,
+      "evidence": "testable.py: Подставить uppercase-formatter без изменения реализации; сверить результат."
+    },
+    "reusability": {
+      "status": "measured",
+      "value": true,
+      "evidence": "testable.py: Вызвать один экспорт из двух клиентов с независимыми sink и данными."
+    },
+    "branch_nodes": {
+      "status": "measured",
+      "value": 4,
+      "evidence": "testable.py: Подсчитать If, IfExp, For, While, Try, BoolOp, comprehension в AST файла."
+    },
+    "source_lines": {
+      "status": "measured",
+      "value": 7,
+      "evidence": "testable.py: Подсчитать непустые строки, кроме строк, начинающихся с #, во всём модуле."
+    },
+    "formatter_calls": {
+      "status": "measured",
+      "value": 6,
+      "evidence": "testable.py: Счётчик вызовов formatter на фиксированных трёх строках."
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": 2,
+  "profile": "mvp",
+  "scope": "demo/export_rows",
+  "suite_id": "export-rows-v2",
+  "search_budget": {
+    "max_attempts_per_level": 3,
+    "max_total_minutes": 15
+  },
+  "hard_constraints": [
+    {
+      "id": "correctness",
+      "label": "Контракт результата",
+      "type": "binary",
+      "direction": "max",
+      "gate": true,
+      "unit": "bool",
+      "evidence_kind": "scenario",
+      "method": "Проверить пустой набор, Unicode, порядок и совпадение возвращённых и отправленных строк.",
+      "limitation": "Конечный набор примеров не доказывает функциональную корректность всех входов."
+    },
+    {
+      "id": "api_contract",
+      "label": "Сигнатура API",
+      "type": "binary",
+      "direction": "max",
+      "gate": true,
+      "unit": "bool",
+      "evidence_kind": "direct",
+      "method": "inspect.signature: export_rows(rows, emit, formatter=str).",
+      "limitation": "Форма сигнатуры не доказывает поведенческую совместимость."
+    },
+    {
+      "id": "input_validation",
+      "label": "Проверка границы",
+      "type": "binary",
+      "direction": "max",
+      "gate": true,
+      "unit": "bool",
+      "evidence_kind": "scenario",
+      "method": "Нестроковый элемент должен вызвать ValueError до первого вызова sink.",
+      "limitation": "Это проверка указанной границы, а не аудит безопасности."
+    },
+    {
+      "id": "work_budget",
+      "label": "Обязательный бюджет работы",
+      "type": "number",
+      "direction": "min",
+      "gate": 12,
+      "unit": "calls / 3 rows",
+      "evidence_kind": "direct",
+      "method": "Счётчик formatter в том же фиксированном workload: не более 12 вызовов.",
+      "limitation": "Демонстрационный ресурсный лимит, не SLO реального сервиса.",
+      "min_improvement": 0
+    }
+  ],
+  "levels": [
+    {
+      "id": "testability",
+      "label": "Тестируемость",
+      "type": "binary",
+      "direction": "max",
+      "gate": true,
+      "unit": "bool",
+      "evidence_kind": "scenario",
+      "method": "Вызвать экспорт с подставным sink; проверить отсутствие вывода в stdout.",
+      "limitation": "Один сценарий изоляции вывода; не доказательство тестируемости всей программы."
+    },
+    {
+      "id": "branch_nodes",
+      "label": "Читаемость: ветвления AST",
+      "type": "number",
+      "direction": "min",
+      "gate": 4,
+      "unit": "AST nodes",
+      "evidence_kind": "proxy",
+      "method": "Подсчитать If, IfExp, For, While, Try, BoolOp, comprehension в AST файла.",
+      "limitation": "Локальная метрика ветвлений; это не Cyclomatic/Cognitive Complexity и не читаемость.",
+      "min_improvement": 0
+    },
+    {
+      "id": "source_lines",
+      "label": "Минималистичность: строки",
+      "type": "number",
+      "direction": "min",
+      "gate": 50,
+      "unit": "nonblank lines",
+      "evidence_kind": "proxy",
+      "method": "Подсчитать непустые строки, кроме строк, начинающихся с #, во всём модуле.",
+      "limitation": "Длина модуля не измеряет смысловую простоту; минификация может ухудшить код.",
+      "min_improvement": 0
+    },
+    {
+      "id": "extensibility",
+      "label": "Расширяемость",
+      "type": "binary",
+      "direction": "max",
+      "gate": true,
+      "unit": "bool",
+      "evidence_kind": "scenario",
+      "method": "Подставить uppercase-formatter без изменения реализации; сверить результат.",
+      "limitation": "Подтверждает только заранее выбранный сценарий расширения."
+    },
+    {
+      "id": "reusability",
+      "label": "Переиспользуемость",
+      "type": "binary",
+      "direction": "max",
+      "gate": true,
+      "unit": "bool",
+      "evidence_kind": "scenario",
+      "method": "Вызвать один экспорт из двух клиентов с независимыми sink и данными.",
+      "limitation": "Два заданных клиента не доказывают универсальность интерфейса."
+    },
+    {
+      "id": "formatter_calls",
+      "label": "Производительность: работа",
+      "type": "number",
+      "direction": "min",
+      "gate": 6,
+      "unit": "calls / 3 rows",
+      "evidence_kind": "proxy",
+      "method": "Счётчик вызовов formatter на фиксированных трёх строках.",
+      "limitation": "Измеряет работу в этом сценарии; не задержку, память или асимптотику в общем случае.",
+      "min_improvement": 0
+    }
+  ]
+}
